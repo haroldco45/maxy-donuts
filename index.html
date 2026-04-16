@@ -9,13 +9,13 @@
         :root {
             --color-pink-primary: #FF1493;
             --color-pink-logo: #E1007A;
-            --color-blue-fb: #1877F2; /* Color oficial Facebook */
+            --color-blue-fb: #1877F2;
             --color-white: #FFFFFF;
             --color-gray-text: #555;
             --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* --- CONTROL DE SUSCRIPCIÓN INVISIBLE --- */
+        /* --- CONTROL DE SUSCRIPCIÓN --- */
         #status-gate { display: block; }
         .expired-message { display: none; text-align: center; padding: 50px; font-family: sans-serif; color: red; }
         
@@ -47,104 +47,62 @@
             flex-direction: column;
         }
 
-        /* LOGO CABECERA */
+        /* CABECERA Y LOGO */
         .logo-header {
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             background: white;
         }
-        .logo-svg-container { width: 110px; margin: 0 auto; }
+        .logo-svg-container { width: 100px; margin: 0 auto; }
 
-        /* INFO SEDE PRINCIPAL */
         .monteria-info {
-            background: #fdfdfd;
-            padding: 15px;
+            padding: 10px;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #444;
             border-top: 1px solid #eee;
-            line-height: 1.4;
         }
 
-        /* SECCIÓN PROMOCIONES */
+        /* PROMOCIONES */
         .promo-section {
             background-color: var(--color-pink-primary);
             color: white;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
         .price-item {
             background: rgba(255,255,255,0.2);
-            margin: 8px 0;
-            padding: 12px;
-            border-radius: 12px;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 10px;
             display: flex;
             justify-content: space-between;
             font-weight: 800;
-            font-size: 1.1rem;
         }
 
-        /* MENÚ / CATÁLOGO */
+        /* MENÚ */
         .catalog-box {
-            padding: 20px;
+            padding: 15px;
             text-align: center;
-        }
-        .catalog-box h3 {
-            color: var(--color-pink-logo);
-            margin-bottom: 10px;
-            font-size: 1rem;
-            text-transform: uppercase;
         }
         .catalog-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
         .catalog-item {
             background: #fff5f9;
-            border-radius: 10px;
-            padding: 12px;
-            font-size: 0.8rem;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 0.75rem;
             font-weight: bold;
             color: var(--color-pink-logo);
             border: 1px solid var(--color-pink-light);
         }
 
-        /* REDES SOCIALES */
-        .social-section {
-            padding: 10px 20px;
-            text-align: center;
-            background: #fdfdfd;
-        }
-        .social-title {
-            font-size: 0.8rem;
-            color: #888;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        .social-btn {
-            background: var(--color-blue-fb);
-            color: white;
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-        .social-btn:hover { transform: scale(1.05); }
-
-        /* BOTONES DE ACCIÓN */
-        .action-section { padding: 20px; }
+        /* SECCIÓN DE ACCIONES */
+        .action-section { padding: 15px; }
+        
         .btn {
             display: flex;
             flex-direction: column;
@@ -152,23 +110,31 @@
             justify-content: center;
             text-decoration: none;
             color: white;
-            padding: 12px;
-            border-radius: 15px;
-            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
             transition: 0.3s;
         }
-        .btn span { font-size: 0.7rem; font-weight: normal; opacity: 0.9; }
-        .btn b { font-size: 1rem; }
+        .btn span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
+        .btn b { font-size: 0.95rem; }
 
-        .btn-caucasia { background-color: #25D366; box-shadow: 0 4px 10px rgba(37,211,102,0.3); }
-        .btn-monteria { background-color: #128C7E; box-shadow: 0 4px 10px rgba(18,140,126,0.3); }
+        /* BOTÓN FACEBOOK DESTACADO */
+        .btn-facebook { 
+            background-color: var(--color-blue-fb); 
+            box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
+            margin-bottom: 15px;
+            border: 2px solid white;
+        }
+
+        .btn-caucasia { background-color: #25D366; }
+        .btn-monteria { background-color: #128C7E; }
         .btn-mail { background-color: #ea4335; }
 
         .footer {
             background: #f4f4f4;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #888;
             border-top: 1px solid #ddd;
         }
@@ -195,17 +161,7 @@
             </div>
 
             <div class="monteria-info">
-                📍 <b>Sede Montería:</b> Cra 10 a # 41-40<br>
-                📧 maxidonutscomercial@gmail.com
-            </div>
-
-            <div class="social-section">
-                <p class="social-title">Síguenos en</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=61559853396200" class="social-btn" target="_blank">
-                        f <b>Facebook</b>
-                    </a>
-                </div>
+                📍 <b>Montería:</b> Cra 10 a # 41-40 | 📧 maxidonutscomercial@gmail.com
             </div>
 
             <div class="promo-section">
@@ -214,35 +170,38 @@
             </div>
 
             <div class="catalog-box">
-                <h3>Nuestros Sabores</h3>
                 <div class="catalog-grid">
                     <div class="catalog-item">🍩 Chocolate</div>
-                    <div class="catalog-item">🍓 Fresa / Mora</div>
+                    <div class="catalog-item">🍓 Fresa/Mora</div>
                     <div class="catalog-item">✨ Glaseadas</div>
-                    <div class="catalog-item">🎁 Promociones</div>
+                    <div class="catalog-item">🎁 Promos</div>
                 </div>
             </div>
 
             <div class="action-section">
-                <a href="https://wa.me/573028410252?text=Hola!%20Vengo%20de%20la%20tarjeta%20digital,%20quiero%20hacer%20un%20pedido" class="btn btn-caucasia" target="_blank">
-                    <span>PUNTO DE VENTA (CAUCASIA)</span>
+                <a href="https://www.facebook.com/profile.php?id=61559853396200&sk=reviews" class="btn btn-facebook" target="_blank">
+                    <span>Visítanos en Facebook</span>
+                    <b>👍 Ver Opiniones y Fotos</b>
+                </a>
+
+                <a href="https://wa.me/573028410252" class="btn btn-caucasia" target="_blank">
+                    <span>Caucasia (Punto de Venta)</span>
                     <b>WhatsApp: 302 841 0252</b>
                 </a>
 
-                <a href="https://wa.me/573207616437?text=Hola!%20Deseo%20información%20sobre%20Maxy%20Donuts%20Montería" class="btn btn-monteria" target="_blank">
-                    <span>SEDE PRINCIPAL (MONTERÍA)</span>
+                <a href="https://wa.me/573207616437" class="btn btn-monteria" target="_blank">
+                    <span>Montería (Sede Principal)</span>
                     <b>WhatsApp: 320 761 6437</b>
                 </a>
 
                 <a href="mailto:maxidonutscomercial@gmail.com" class="btn btn-mail">
-                    <b>Enviar Correo Electrónico</b>
+                    <b>✉️ Enviar Correo</b>
                 </a>
             </div>
 
             <div class="footer">
-                <p>App desarrollada por <b>Vibras Positivas (3117700431)</b></p>
-                <p>Derechos de Autor © Todos los Derechos Reservados</p>
-                <p>Colombia | 16-04-2026</p>
+                <p>Desarrollado por <b>Vibras Positivas (3117700431)</b></p>
+                <p>Derechos Reservados © Colombia | 2026</p>
             </div>
         </div>
     </div>
