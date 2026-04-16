@@ -9,7 +9,7 @@
         :root {
             --color-pink-primary: #FF1493;
             --color-pink-logo: #E1007A;
-            --color-blue-contact: #22A7F0;
+            --color-blue-fb: #1877F2; /* Color oficial Facebook */
             --color-white: #FFFFFF;
             --color-gray-text: #555;
             --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -110,6 +110,39 @@
             border: 1px solid var(--color-pink-light);
         }
 
+        /* REDES SOCIALES */
+        .social-section {
+            padding: 10px 20px;
+            text-align: center;
+            background: #fdfdfd;
+        }
+        .social-title {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-btn {
+            background: var(--color-blue-fb);
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .social-btn:hover { transform: scale(1.05); }
+
         /* BOTONES DE ACCIÓN */
         .action-section { padding: 20px; }
         .btn {
@@ -166,6 +199,15 @@
                 📧 maxidonutscomercial@gmail.com
             </div>
 
+            <div class="social-section">
+                <p class="social-title">Síguenos en</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61559853396200" class="social-btn" target="_blank">
+                        f <b>Facebook</b>
+                    </a>
+                </div>
+            </div>
+
             <div class="promo-section">
                 <div class="price-item"><span>UNIDAD</span> <span>$4.000</span></div>
                 <div class="price-item"><span>CAJA X 8</span> <span>$30.000</span></div>
@@ -182,12 +224,12 @@
             </div>
 
             <div class="action-section">
-                <a href="https://wa.me/573028410252?text=Hola!%20Vengo%20de%20la%20tarjeta%20digital,%20quiero%20hacer%20un%20pedido" class="btn btn-caucasia">
+                <a href="https://wa.me/573028410252?text=Hola!%20Vengo%20de%20la%20tarjeta%20digital,%20quiero%20hacer%20un%20pedido" class="btn btn-caucasia" target="_blank">
                     <span>PUNTO DE VENTA (CAUCASIA)</span>
                     <b>WhatsApp: 302 841 0252</b>
                 </a>
 
-                <a href="https://wa.me/573207616437?text=Hola!%20Deseo%20información%20sobre%20Maxy%20Donuts%20Montería" class="btn btn-monteria">
+                <a href="https://wa.me/573207616437?text=Hola!%20Deseo%20información%20sobre%20Maxy%20Donuts%20Montería" class="btn btn-monteria" target="_blank">
                     <span>SEDE PRINCIPAL (MONTERÍA)</span>
                     <b>WhatsApp: 320 761 6437</b>
                 </a>
