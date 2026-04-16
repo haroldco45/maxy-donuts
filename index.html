@@ -19,7 +19,6 @@
         #status-gate { display: block; }
         .expired-message { display: none; text-align: center; padding: 50px; font-family: sans-serif; color: red; }
         
-        /* El código se bloquea si el año no es 2026/2027 */
         @media screen {
             #status-gate[data-expires^="2025"] .card-container { display: none; }
             #status-gate[data-expires^="2025"] .expired-message { display: block; }
@@ -56,7 +55,7 @@
         }
         .logo-svg-container { width: 110px; margin: 0 auto; }
 
-        /* DATOS DE MONTERÍA EXTRAÍDOS */
+        /* INFO SEDE PRINCIPAL */
         .monteria-info {
             background: #fdfdfd;
             padding: 15px;
@@ -74,7 +73,6 @@
             padding: 20px;
             text-align: center;
         }
-        .price-list { list-style: none; }
         .price-item {
             background: rgba(255,255,255,0.2);
             margin: 8px 0;
@@ -86,7 +84,7 @@
             font-size: 1.1rem;
         }
 
-        /* CATÁLOGO VISUAL (INTEGRADO PARA EVITAR 404) */
+        /* MENÚ / CATÁLOGO */
         .catalog-box {
             padding: 20px;
             text-align: center;
@@ -103,32 +101,34 @@
             gap: 10px;
         }
         .catalog-item {
-            background: #f0f0f0;
+            background: #fff5f9;
             border-radius: 10px;
-            padding: 10px;
-            font-size: 0.75rem;
+            padding: 12px;
+            font-size: 0.8rem;
             font-weight: bold;
             color: var(--color-pink-logo);
-            border: 1px dashed var(--color-pink-light);
+            border: 1px solid var(--color-pink-light);
         }
 
         /* BOTONES DE ACCIÓN */
         .action-section { padding: 20px; }
         .btn {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             color: white;
-            font-weight: bold;
-            padding: 14px;
-            border-radius: 50px;
-            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 15px;
+            margin-bottom: 12px;
             transition: 0.3s;
-            font-size: 0.9rem;
         }
-        .btn-ws-1 { background-color: #25D366; }
-        .btn-ws-2 { background-color: #128C7E; }
+        .btn span { font-size: 0.7rem; font-weight: normal; opacity: 0.9; }
+        .btn b { font-size: 1rem; }
+
+        .btn-caucasia { background-color: #25D366; box-shadow: 0 4px 10px rgba(37,211,102,0.3); }
+        .btn-monteria { background-color: #128C7E; box-shadow: 0 4px 10px rgba(18,140,126,0.3); }
         .btn-mail { background-color: #ea4335; }
 
         .footer {
@@ -162,19 +162,17 @@
             </div>
 
             <div class="monteria-info">
-                📍 <b>Dirección:</b> Cra 10 a # 41-40, Montería, Colombia<br>
-                📧 <b>Email:</b> maxidonutscomercial@gmail.com
+                📍 <b>Sede Montería:</b> Cra 10 a # 41-40<br>
+                📧 maxidonutscomercial@gmail.com
             </div>
 
             <div class="promo-section">
-                <div class="price-list">
-                    <div class="price-item"><span>UNIDAD</span> <span>$4.000</span></div>
-                    <div class="price-item"><span>CAJA X 8</span> <span>$30.000</span></div>
-                </div>
+                <div class="price-item"><span>UNIDAD</span> <span>$4.000</span></div>
+                <div class="price-item"><span>CAJA X 8</span> <span>$30.000</span></div>
             </div>
 
             <div class="catalog-box">
-                <h3>Nuestro Menú</h3>
+                <h3>Nuestros Sabores</h3>
                 <div class="catalog-grid">
                     <div class="catalog-item">🍩 Chocolate</div>
                     <div class="catalog-item">🍓 Fresa / Mora</div>
@@ -184,25 +182,25 @@
             </div>
 
             <div class="action-section">
-                <p style="text-align:center; font-weight:bold; color:#E1007A; margin-bottom:10px;">¡PIDE AQUÍ!</p>
-                
-                <a href="https://wa.me/573028410252" class="btn btn-ws-1">
-                    🟢 WhatsApp: 302 841 0252
+                <a href="https://wa.me/573028410252?text=Hola!%20Vengo%20de%20la%20tarjeta%20digital,%20quiero%20hacer%20un%20pedido" class="btn btn-caucasia">
+                    <span>PUNTO DE VENTA (CAUCASIA)</span>
+                    <b>WhatsApp: 302 841 0252</b>
                 </a>
 
-                <a href="https://wa.me/573207616437" class="btn btn-ws-2">
-                    🟢 WhatsApp: 320 761 6437
+                <a href="https://wa.me/573207616437?text=Hola!%20Deseo%20información%20sobre%20Maxy%20Donuts%20Montería" class="btn btn-monteria">
+                    <span>SEDE PRINCIPAL (MONTERÍA)</span>
+                    <b>WhatsApp: 320 761 6437</b>
                 </a>
 
                 <a href="mailto:maxidonutscomercial@gmail.com" class="btn btn-mail">
-                    ✉️ Enviar Correo Electrónico
+                    <b>Enviar Correo Electrónico</b>
                 </a>
             </div>
 
             <div class="footer">
                 <p>App desarrollada por <b>Vibras Positivas (3117700431)</b></p>
                 <p>Derechos de Autor © Todos los Derechos Reservados</p>
-                <p>Colombia | 2026</p>
+                <p>Colombia | 16-04-2026</p>
             </div>
         </div>
     </div>
