@@ -15,13 +15,26 @@
             --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* --- CONTROL DE SUSCRIPCIÓN --- */
-        #status-gate { display: block; }
-        .expired-message { display: none; text-align: center; padding: 50px; font-family: sans-serif; color: red; }
-        
-        @media screen {
-            #status-gate[data-expires^="2025"] .card-container { display: none; }
-            #status-gate[data-expires^="2025"] .expired-message { display: block; }
+        /* --- CONTROL DE SUSCRIPCIÓN INVISIBLE/VISIBLE --- */
+        #subscription-notice {
+            display: none;
+            background: #fff3cd;
+            color: #856404;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-bottom: 1px solid #ffeeba;
+        }
+
+        .expired-message { 
+            display: none; 
+            text-align: center; 
+            padding: 100px 20px; 
+            font-family: sans-serif; 
+            color: #721c24;
+            background: #f8d7da;
+            min-height: 100vh;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,29 +43,25 @@
             font-family: var(--font-family);
             background: linear-gradient(135deg, #fdfdfd 0%, #ffe0f0 100%);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 15px;
         }
 
         .card-container {
+            display: flex;
+            flex-direction: column;
             background-color: var(--color-white);
             width: 100%;
             max-width: 400px;
+            margin: 15px;
             border-radius: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
 
         /* CABECERA Y LOGO */
-        .logo-header {
-            padding: 20px;
-            text-align: center;
-            background: white;
-        }
+        .logo-header { padding: 20px; text-align: center; background: white; }
         .logo-svg-container { width: 100px; margin: 0 auto; }
 
         .monteria-info {
@@ -64,12 +73,7 @@
         }
 
         /* PROMOCIONES */
-        .promo-section {
-            background-color: var(--color-pink-primary);
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
+        .promo-section { background-color: var(--color-pink-primary); color: white; padding: 15px; text-align: center; }
         .price-item {
             background: rgba(255,255,255,0.2);
             margin: 5px 0;
@@ -81,15 +85,8 @@
         }
 
         /* MENÚ */
-        .catalog-box {
-            padding: 15px;
-            text-align: center;
-        }
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-        }
+        .catalog-box { padding: 15px; text-align: center; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
         .catalog-item {
             background: #fff5f9;
             border-radius: 8px;
@@ -100,9 +97,8 @@
             border: 1px solid var(--color-pink-light);
         }
 
-        /* SECCIÓN DE ACCIONES */
+        /* BOTONES */
         .action-section { padding: 15px; }
-        
         .btn {
             display: flex;
             flex-direction: column;
@@ -118,14 +114,7 @@
         .btn span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
         .btn b { font-size: 0.95rem; }
 
-        /* BOTÓN FACEBOOK DESTACADO */
-        .btn-facebook { 
-            background-color: var(--color-blue-fb); 
-            box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
-            margin-bottom: 15px;
-            border: 2px solid white;
-        }
-
+        .btn-facebook { background-color: var(--color-blue-fb); border: 2px solid white; box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3); }
         .btn-caucasia { background-color: #25D366; }
         .btn-monteria { background-color: #128C7E; }
         .btn-mail { background-color: #ea4335; }
@@ -142,69 +131,94 @@
 </head>
 <body>
 
-    <div id="status-gate" data-expires="2027-04-16">
-        
-        <div class="expired-message">
-            <h1>Suscripción Vencida</h1>
-            <p>Contactar a Vibras Positivas (3117700431)</p>
+    <div id="subscription-notice"></div>
+
+    <div id="expired-card" class="expired-message">
+        <h1>Suscripción Vencida</h1>
+        <p>Contactar a <b>Vibras Positivas (3117700431)</b> para renovar su servicio.</p>
+    </div>
+
+    <div class="card-container" id="main-card">
+        <div class="logo-header">
+            <div class="logo-svg-container">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="48" fill="#E1007A"/>
+                    <text x="50" y="42" font-family="Arial" font-size="22" font-weight="bold" text-anchor="middle" fill="white">Maxy</text>
+                    <text x="50" y="68" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">Donuts</text>
+                </svg>
+            </div>
         </div>
 
-        <div class="card-container">
-            <div class="logo-header">
-                <div class="logo-svg-container">
-                    <svg viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="48" fill="#E1007A"/>
-                        <text x="50" y="42" font-family="Arial" font-size="22" font-weight="bold" text-anchor="middle" fill="white">Maxy</text>
-                        <text x="50" y="68" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">Donuts</text>
-                    </svg>
-                </div>
+        <div class="monteria-info">
+            📍 <b>Montería:</b> Cra 10 a # 41-40 | 📧 maxidonutscomercial@gmail.com
+        </div>
+
+        <div class="promo-section">
+            <div class="price-item"><span>UNIDAD</span> <span>$4.000</span></div>
+            <div class="price-item"><span>CAJA X 8</span> <span>$30.000</span></div>
+        </div>
+
+        <div class="catalog-box">
+            <div class="catalog-grid">
+                <div class="catalog-item">🍩 Chocolate</div>
+                <div class="catalog-item">🍓 Fresa/Mora</div>
+                <div class="catalog-item">✨ Glaseadas</div>
+                <div class="catalog-item">🎁 Promos</div>
             </div>
+        </div>
 
-            <div class="monteria-info">
-                📍 <b>Montería:</b> Cra 10 a # 41-40 | 📧 maxidonutscomercial@gmail.com
-            </div>
+        <div class="action-section">
+            <a href="https://www.facebook.com/profile.php?id=61559853396200&sk=reviews" class="btn btn-facebook" target="_blank">
+                <span>Visítanos en Facebook</span>
+                <b>👍 Ver Opiniones y Fotos</b>
+            </a>
 
-            <div class="promo-section">
-                <div class="price-item"><span>UNIDAD</span> <span>$4.000</span></div>
-                <div class="price-item"><span>CAJA X 8</span> <span>$30.000</span></div>
-            </div>
+            <a href="https://wa.me/573028410252" class="btn btn-caucasia" target="_blank">
+                <span>Caucasia (Punto de Venta)</span>
+                <b>WhatsApp: 302 841 0252</b>
+            </a>
 
-            <div class="catalog-box">
-                <div class="catalog-grid">
-                    <div class="catalog-item">🍩 Chocolate</div>
-                    <div class="catalog-item">🍓 Fresa/Mora</div>
-                    <div class="catalog-item">✨ Glaseadas</div>
-                    <div class="catalog-item">🎁 Promos</div>
-                </div>
-            </div>
+            <a href="https://wa.me/573207616437" class="btn btn-monteria" target="_blank">
+                <span>Montería (Sede Principal)</span>
+                <b>WhatsApp: 320 761 6437</b>
+            </a>
 
-            <div class="action-section">
-                <a href="https://www.facebook.com/profile.php?id=61559853396200&sk=reviews" class="btn btn-facebook" target="_blank">
-                    <span>Visítanos en Facebook</span>
-                    <b>👍 Ver Opiniones y Fotos</b>
-                </a>
+            <a href="mailto:maxidonutscomercial@gmail.com" class="btn btn-mail">
+                <b>✉️ Enviar Correo</b>
+            </a>
+        </div>
 
-                <a href="https://wa.me/573028410252" class="btn btn-caucasia" target="_blank">
-                    <span>Caucasia (Punto de Venta)</span>
-                    <b>WhatsApp: 302 841 0252</b>
-                </a>
-
-                <a href="https://wa.me/573207616437" class="btn btn-monteria" target="_blank">
-                    <span>Montería (Sede Principal)</span>
-                    <b>WhatsApp: 320 761 6437</b>
-                </a>
-
-                <a href="mailto:maxidonutscomercial@gmail.com" class="btn btn-mail">
-                    <b>✉️ Enviar Correo</b>
-                </a>
-            </div>
-
-            <div class="footer">
-                <p>Desarrollado por <b>Vibras Positivas (3117700431)</b></p>
-                <p>Derechos Reservados © Colombia | 2026</p>
-            </div>
+        <div class="footer">
+            <p>Desarrollado por <b>Vibras Positivas (3117700431)</b></p>
+            <p>Derechos Reservados © Colombia | 2026</p>
         </div>
     </div>
 
+    <script>
+        (function() {
+            // FECHA DE VENCIMIENTO (Año, Mes-1, Día) -> Mes 3 es Abril
+            const expirationDate = new Date(2027, 3, 16); 
+            const today = new Date();
+            
+            // Cálculo de diferencia en días
+            const diffTime = expirationDate - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            const noticeEl = document.getElementById('subscription-notice');
+            const cardEl = document.getElementById('main-card');
+            const expiredEl = document.getElementById('expired-card');
+
+            if (diffDays <= 0) {
+                // Bloqueo total
+                cardEl.style.display = 'none';
+                noticeEl.style.display = 'none';
+                expiredEl.style.display = 'block';
+            } else if (diffDays <= 8) {
+                // Mostrar aviso de pocos días
+                noticeEl.style.display = 'block';
+                noticeEl.innerHTML = `⚠️ Aviso de seguridad: Su suscripción vence en ${diffDays} día(s).`;
+            }
+        })();
+    </script>
 </body>
 </html>
