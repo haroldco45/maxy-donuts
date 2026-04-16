@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxy Donuts - Tarjeta Digital</title>
+    
+    <meta property="og:title" content="Maxy Donuts - ¡Simplemente Deliciosa!">
+    <meta property="og:description" content="Pide tus donas favoritas. Promociones increíbles.">
+    <style>
+        :root {
+            --color-pink-primary: #FF1493; /* Rosa vibrante de la promo */
+            --color-pink-light: #FFC0CB;
+            --color-pink-logo: #E1007A; /* Magenta del logo circular */
+            --color-blue-contact: #22A7F0; /* Azul del Whatsapp */
+            --color-blue-text: #007BFF; /* Azul del texto Donuts */
+            --color-white: #FFFFFF;
+            --color-gray-text: #555;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --date-created: "16-04-2026 16:22:37 COT"; /* Fecha/Hora Real Colombia */
+        }
+
+        /* --- LÓGICA DE CONTROL INVISIBLE DE SUSCRIPCIÓN --- */
+        #status-gate { display: block; }
+        .expired-message { display: none; text-align: center; padding: 50px; font-family: sans-serif; color: red; }
+        /* Control por fecha (ejemplo de vencimiento en 1 año) */
+        @media screen {
+            #status-gate[data-expires^="2027"] { /* Si el año de exp es 2027 o superior, ocultar mensaje */ }
+            #status-gate[data-expires^="2026-03"] .expired-message,
+            #status-gate[data-expires^="2025"] .expired-message {
+                display: block;
+            }
+            #status-gate[data-expires^="2026-03"] .card-container,
+            #status-gate[data-expires^="2025"] .card-container {
+                display: none;
+            }
+        }
+        /* --- FIN LÓGICA DE CONTROL --- */
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-family);
+            background: linear-gradient(135deg, #fff 0%, #ffe0f0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--color-gray-text);
+        }
+
+        .card-container {
+            background-color: var(--color-white);
+            width: 100%;
+            max-width: 420px; /* Tamaño optimizado para móviles */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* --- LOGO VECTORIAL INCRUSTADO (RECONSTRUCCIÓN 100% DE LA IMAGEN) --- */
+        .logo-header {
+            padding: 30px 20px;
+            text-align: center;
+            background-color: var(--color-white);
+            border-bottom: 2px solid #eee;
+        }
+        
+        /* Contenedor del SVG para control de tamaño */
+        .logo-svg-container {
+            width: 140px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        /* --- SECCIÓN DE PROMOCIONES (Inspirada en el cartel) --- */
+        .promo-section {
+            background-color: var(--color-pink-primary);
+            color: var(--color-white);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .promo-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .price-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .price-item {
+            background-color: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-item .unit { font-size: 1rem; font-weight: 600; text-transform: uppercase; }
+        .price-item .value { font-size: 1.8rem; font-weight: 800; color: #fff; }
+        .price-item .currency { font-size: 1rem; font-weight: 400; color: #fff; vertical-align: super; }
+
+        /* --- SECCIÓN DE INTERACCIÓN (Botones de Acción) --- */
+        .action-section {
+            padding: 25px 20px;
+            background-color: var(--color-white);
+        }
+
+        .call-to-action {
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--color-pink-logo);
+            text-transform: uppercase;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 16px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--color-blue-contact);
+        }
+
+        .btn-catalog {
+            background-color: #f7b731; /* Un color 'donita' */
+        }
+
+        .btn-call {
+            background-color: var(--color-pink-logo);
+        }
+
+        .btn-icon {
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* --- PIE DE PÁGINA (Copyright Vibras Positivas) --- */
+        .footer {
+            background-color: #f4f4f4;
+            color: #888;
+            font-size: 0.8rem;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer p { margin-bottom: 5px; }
+
+        /* Iconos Simples (pueden ser SVGs o fuentes de iconos) */
+        .icon {
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="status-gate" data-expires="2027-04-16">
+
+        <div class="expired-message">
+            <h2>Subscripción Vencida</h2>
+            <p>Por favor contacte a <b>Vibras Positivas (3117700431)</b> para renovar.</p>
+        </div>
+
+        <div class="card-container">
+            
+            <div class="logo-header">
+                <div class="logo-svg-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="maxy-donuts-logo">
+                        <circle cx="50" cy="50" r="48" fill="#E1007A"/>
+                        <text x="50" y="38" font-family="'Segoe UI', 'Arial', sans-serif" font-size="28" font-weight="900" text-anchor="middle" fill="#FFFFFF">Maxy</text>
+                        <text x="50" y="72" font-family="'Segoe UI', 'Arial', sans-serif" font-size="26" font-weight="900" text-anchor="middle" fill="#FFFFFF" stroke="#007BFF" stroke-width="1.5">Donuts</text>
+                        <text x="50" y="86" font-family="'Segoe UI', 'Arial', sans-serif" font-size="7" font-weight="400" text-anchor="middle" fill="#FFFFFF">Simplemente Deliciosa</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="promo-section">
+                <h1 class="promo-title">Promociones</h1>
+                <ul class="price-list">
+                    <li class="price-item">
+                        <span class="unit">Unidad x solo</span>
+                        <span class="value"><span class="currency">$</span>4<span class="currency">mil</span></span>
+                    </li>
+                    <li class="price-item">
+                        <span class="unit">Caja x 8 und</span>
+                        <span class="value"><span class="currency">$</span>30.000</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="action-section">
+                <p class="call-to-action">Haz tu pedido</p>
+                <div class="btn-group">
+                    
+                    <a href="https://wa.me/573028410252?text=Hola%20Maxy%20Donuts!%20Quiero%20pedir%20donas" class="btn btn-whatsapp" target="_blank">
+                        <span class="btn-icon">💬</span>
+                        302 841 0252
+                    </a>
+
+                    <a href="tel:+573028410252" class="btn btn-call">
+                        <span class="btn-icon">📞</span>
+                        Llamar a Maxy Donuts
+                    </a>
+
+                    <a href="enlace_al_catalogo.pdf" class="btn btn-catalog" target="_blank">
+                        <span class="btn-icon">🍩</span>
+                        Ver Catálogo de Donas
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>App desarrollada por <b>Vibras Positivas (3117700431)</b></p>
+                <p>Derechos de Autor © Todos los Derechos Reservados</p>
+                <p style="font-size: 0.7rem;">Creado en Colombia: 16-04-2026 16:22:37 COT</p>
+            </div>
+
+        </div> </div> </body>
+</html>
